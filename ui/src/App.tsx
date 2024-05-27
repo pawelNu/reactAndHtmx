@@ -1,11 +1,20 @@
 // import './App.css'
 
-import { TaskTable } from "./components/task/TaskTable";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { TaskTableWithoutState } from "./components/task/TaskTableWithoutState";
+import { TaskTableWithState } from "./components/task/TaskTableWithState";
+import { MainPage, links } from "./components/task/Main";
 
 function App() {
     return (
         <>
-            <TaskTable />
+            <BrowserRouter>
+                <Routes>
+                    <Route path={links.mainPage} element={<MainPage />} />
+                    <Route path={links.TaskTableWithoutState} element={<TaskTableWithoutState />} />
+                    <Route path={links.TaskTableWithState} element={<TaskTableWithState />} />
+                </Routes>
+            </BrowserRouter>
         </>
     );
 }
